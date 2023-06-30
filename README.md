@@ -13,6 +13,6 @@ The API runs on port 8080, so, to make a request, use localhost:8080.
 defaults to alphabetical.
 
 "/pokemons/highlight" fetches all pokemons but adds an extra key ("highlight") to each of them, which has a value of the pokemon name with
-"<pre></pre>" tags containing the substring of the name that matched the query provided by the user making the request. If no query is provided,
+"\<pre>\</pre>" tags containing the substring of the name that matched the query provided by the user making the request. If no query is provided,
 it highlights the entire name.
 Also accepts both "sort" and "query" parameters.
