@@ -1,6 +1,5 @@
 package com.example.pokeapiservice.controller
 
-import com.example.pokeapiservice.model.HighlightedPokemon
 import com.example.pokeapiservice.service.PokeApiService
 import com.example.pokeapiservice.service.ResponseFormatterService
 import com.example.pokeapiservice.service.SortingService

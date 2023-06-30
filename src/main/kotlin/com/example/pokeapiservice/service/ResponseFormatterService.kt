@@ -1,6 +1,5 @@
 package com.example.pokeapiservice.service
 import com.example.pokeapiservice.model.HighlightedPokemon
-import com.example.pokeapiservice.model.Pokemon
 import org.springframework.stereotype.Service
 
 @Service

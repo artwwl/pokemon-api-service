@@ -1,6 +1,5 @@
 package com.example.pokeapiservice.service
 
-import com.example.pokeapiservice.model.Pokemon
 import com.example.pokeapiservice.model.PokemonResponse
 import org.springframework.stereotype.Service
 import org.springframework.web.client.RestTemplate
