@@ -12,10 +12,12 @@ import org.springframework.web.bind.annotation.RestController
 class PokemonController(private val pokeApiService: PokeApiService) {
     @GetMapping("/pokemons")
     @ResponseBody
-    fun getPokemons(): Map<String, List<String>> {
-        val pokemonsList = pokeApiService.getAllPokemonsFromApi()
-        return formattedResponse(pokemonsList)
-
+    fun getPokemons(
+            @RequestParam(required = false) query: String?,
+            @RequestParam(required = false) sort: String?
+    ): Map<String, List<String>> {
+        val pokemonsList = pokeApiService.searchPokemons(query)
+        return formattedResponse(pokemonsList, sort)
     }
 
     @GetMapping("/pokemons/highlight")
@@ -26,15 +28,24 @@ class PokemonController(private val pokeApiService: PokeApiService) {
         return "highlighted pokemons!! query: ${query ?: "not present"} and sort: ${sort ?: "not present"}"
     }
 
-    private fun formattedResponse(list: MutableList<String>, sort: String = "length"): Map<String, List<String>> {
+    private fun formattedResponse(list: MutableList<String>, sort: String?): Map<String, List<String>> {
+        var mutableSort = sort
+
+        mutableSort = (if (sort == null) {
+            "alphabetical"
+        } else {
+            sort
+        }).toString()
+
         val responseFormatter = ResponseFormatterService()
         val sortingService = SortingService()
-        var sortedList = emptyList<String>()
-        if (sort == "alphabetical") {
-            sortedList = sortingService.alphabeticalSort(list)
+
+        val sortedList = if (mutableSort.lowercase() == "alphabetical") {
+            sortingService.alphabeticalSort(list)
         } else {
-            sortedList = sortingService.lengthSort(list)
+            sortingService.lengthSort(list)
         }
+
         return responseFormatter.formatList(sortedList)
     }
 }

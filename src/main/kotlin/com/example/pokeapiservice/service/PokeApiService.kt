@@ -18,4 +18,15 @@ class PokeApiService() {
         }
         return list
     }
+
+    fun searchPokemons(query: String?): MutableList<String> {
+        return if(query == null) {
+            getAllPokemonsFromApi()
+        } else {
+            val pokemonList = getAllPokemonsFromApi()
+            val regex = Regex(Regex.escape(query), RegexOption.IGNORE_CASE)
+
+            pokemonList.filter { regex.containsMatchIn(it) }.toMutableList()
+        }
+    }
 }
