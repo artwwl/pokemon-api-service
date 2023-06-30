@@ -4,6 +4,10 @@ import org.springframework.stereotype.Service
 
 @Service
 class HighlighterService {
+
+    // This function takes in two arguments, a name and a query, the substring of the name that matches our
+    // regex built from the query gets replaced by itself inside <pre> tags so we have highlighting in our JSON
+    // response
     fun highlight(name: String, query: String): String {
         val regex = Regex(Regex.escape(query), RegexOption.IGNORE_CASE)
 

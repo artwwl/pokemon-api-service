@@ -4,6 +4,12 @@ import org.springframework.stereotype.Service
 
 @Service
 class SortingService {
+
+    // This is where the fun begins, the infamous sorting algorithms, this one is a quick sort
+    // It has an average Big O complexity of (n log n) because it divides the input into smaller pieces and
+    // recursively reaplies itself onto those smaller pieces
+    // But it has the disadvantage of having a max complexity of (n^2) if the chosen pivot is the worst possible,
+    // which is not that great
     fun alphabeticalSort(pokemonList: MutableList<String>): List<String> {
         if (pokemonList.size <= 1) {
             return pokemonList
@@ -23,9 +29,11 @@ class SortingService {
             }
         }
 
-        return alphabeticalSort(left) + middle + alphabeticalSort(right)
+        return alphabeticalSort(left) + middle + alphabeticalSort(right) // Returns the list joining all the pieces together
     }
 
+
+    // Same thing but sorted by word length
     fun lengthSort(pokemonList: MutableList<String>): List<String> {
         if (pokemonList.size <= 1) {
             return pokemonList
