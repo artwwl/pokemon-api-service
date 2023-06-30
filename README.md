@@ -2,7 +2,7 @@
 
 This is my first API build and my first ever contact with Kotlin.<br>
 I chose Kotlin over Java (which is a language I had some contact with in the past in college freshman year) to challenge myself and<br>
-to show that I'm completely capable of figuring a new technology out pretty quickly.
+to show that I'm completely capable of figuring a new technology out pretty quickly.<br>
 <br>
 DOCUMENTATION<br>
 The API runs on port 8080, so, to make a request, use localhost:8080.<br>
