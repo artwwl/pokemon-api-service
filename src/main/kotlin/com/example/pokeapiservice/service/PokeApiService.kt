@@ -8,7 +8,7 @@ import org.springframework.web.client.RestTemplate
 class PokeApiService() {
     val baseUrl = "https://pokeapi.co/api/v2/pokemon/"
 
-    fun getAllPokemonsFromApi(): MutableList<String> {
+    private fun getAllPokemonsFromApi(): MutableList<String> {
         val restTemplate = RestTemplate()
         val response = restTemplate.getForObject("$baseUrl/?limit=10000", PokemonResponse::class.java)
         val list = mutableListOf<String>()

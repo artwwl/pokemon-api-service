@@ -23,7 +23,6 @@ class SortingService {
             }
         }
 
-
         return alphabeticalSort(left) + middle + alphabeticalSort(right)
     }
 
