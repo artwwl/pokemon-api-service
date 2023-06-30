@@ -30,6 +30,9 @@ class SortingService {
         }
 
         return alphabeticalSort(left) + middle + alphabeticalSort(right) // Returns the list joining all the pieces together
+                                                                         // by recursively calling itself on both left and right sides
+                                                                         // of the pivot
+
     }
 
 
@@ -47,9 +50,9 @@ class SortingService {
 
         for (pokemon in pokemonList) {
             when {
-                pokemon.length < pivot.length -> left.add(pokemon)     // Add elements less than the pivot to the left list
-                pokemon.length == pivot.length -> middle.add(pokemon)   // Add elements equal to the pivot to the middle list
-                else -> right.add(pokemon)                // Add elements greater than the pivot to the right list
+                pokemon.length < pivot.length -> left.add(pokemon) 
+                pokemon.length == pivot.length -> middle.add(pokemon)
+                else -> right.add(pokemon)
             }
         }
 
