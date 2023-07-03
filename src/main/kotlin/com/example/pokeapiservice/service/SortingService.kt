@@ -5,18 +5,19 @@ import org.springframework.stereotype.Service
 @Service
 class SortingService {
 
-    // This is where the fun begins, the infamous sorting algorithms, this one is a quick sort
+    // This is one of the infamous sorting algorithms, this one is a quick sort
     // It has an average Big O complexity of (n log n) because it divides the input into smaller pieces and
-    // recursively reaplies itself onto those smaller pieces
+    // recursively reapplies itself onto those smaller pieces
     // But it has the disadvantage of having a max complexity of (n^2) if the chosen pivot is the worst possible,
     // which is not that great
     fun alphabeticalSort(pokemonList: MutableList<String>): List<String> {
-        if (pokemonList.size <= 1) {
-            return pokemonList
+        if (pokemonList.size <= 1) { // if there's only one element inside the list, returns the list since
+            return pokemonList       // the sorting is done
         }
 
-        val pivot = pokemonList[pokemonList.size / 2]
+        val pivot = pokemonList[pokemonList.size / 2] // defines the pivot element inside the list as the middle element
 
+        // variable initialization for all the needed lists
         val left = mutableListOf<String>()
         val middle = mutableListOf<String>()
         val right = mutableListOf<String>()
@@ -29,10 +30,10 @@ class SortingService {
             }
         }
 
-        return alphabeticalSort(left) + middle + alphabeticalSort(right) // Returns the list joining all the pieces together
-                                                                         // by recursively calling itself on both left and right sides
-                                                                         // of the pivot
-
+        // Returns the list joining all the pieces together
+        // by recursively calling itself on both left and right sides
+        // of the pivot until there's only one element in every child list
+        return alphabeticalSort(left) + middle + alphabeticalSort(right)
     }
 
 
