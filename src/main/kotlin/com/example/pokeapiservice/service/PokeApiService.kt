@@ -13,7 +13,6 @@ class PokeApiService() {
 
         val response = restTemplate.getForObject("$baseUrl/?limit=10000", PokemonResponse::class.java)
         val list = mutableListOf<String>()
-        println(response)
         response?.pokemons?.forEach {
             list.add(it.name)
         }
