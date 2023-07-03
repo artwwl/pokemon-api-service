@@ -1,4 +1,5 @@
-![api_diagrampng](https://github.com/artwwl/pokemon-api-service/assets/100335019/3152cc49-0359-4a7c-acda-70aca275df27)
+![api_diagrampng](https://github.com/artwwl/pokemon-api-service/assets/100335019/cc203ec5-db7c-402e-93d1-f47e5a0bb90d)
+
 
 This is my first API build and my first ever contact with Kotlin.<br>
 I chose Kotlin over Java (which is a language I had some contact with in the past in college freshman year) to challenge myself and<br>
